@@ -1,55 +1,43 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>DiseñaArte IA — v10 (proxy)</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DiseñaArte IA v8</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>DiseñaArte IA</h1>
-  </header>
+  <div id="galaxy-bg"></div>
 
-  <main>
-    <section class="left">
-      <canvas id="canvas" width="1000" height="650"></canvas>
+  <section id="welcome-screen" class="fade-in">
+    <h1>✨ Bienvenido a DiseñaArte IA ✨</h1>
+    <button id="enterBtn">Entrar al Estudio</button>
+  </section>
+
+  <main id="studio" class="hidden">
+    <aside id="chat-area">
+      <h2>Asesora de Arte Anime</h2>
+      <div id="chat-box"></div>
+      <div id="chat-inputs">
+        <input type="text" id="userInput" placeholder="Escribe aquí...">
+        <button id="sendBtn">Enviar</button>
+      </div>
       <div class="controls">
-        <label>Herramienta:
-          <select id="tool">
-            <option value="brush">Lápiz</option>
-            <option value="watercolor">Acuarela</option>
-            <option value="marker">Marcador</option>
-            <option value="eraser">Borrador</option>
-          </select>
-        </label>
-
-        <label>Grosor: <input id="size" type="range" min="1" max="60" value="6"></label>
-        <label>Color: <input id="color" type="color" value="#111111"></label>
-        <button id="undo">Deshacer</button>
-        <button id="clear">Limpiar</button>
-        <button id="download">Descargar PNG</button>
+        <button id="createBtn">Modo Crear 🎨</button>
+        <button id="teachBtn">Modo Asesorar 🤖</button>
+        <input type="color" id="colorPicker" value="#000000">
+        <button id="eraseBtn">Borrar</button>
+        <button id="clearBtn">Limpiar</button>
+        <button id="saveBtn">Guardar Imagen</button>
+        <button id="exitBtn">Despedirse del asesor</button>
       </div>
-    </section>
+    </aside>
 
-    <section class="right">
-      <label>Prompt (describe lo que quieres):</label>
-      <textarea id="prompt" rows="6" placeholder="Ej: Dibuja rosas en acuarela, o 'tutorial para dibujar rostro paso a paso'"></textarea>
-
-      <div class="ai-controls">
-        <button id="aiSketch">Generar boceto</button>
-        <button id="aiArt">Generar artístico</button>
-        <button id="aiTutorial">Modo tutorial</button>
-      </div>
-
-      <div id="log" class="log"></div>
+    <section id="draw-area">
+      <canvas id="drawBoard" width="800" height="600"></canvas>
     </section>
   </main>
 
-  <footer>
-    <small>Listo para usar con proxy: coloca tu clave OPENAI_API_KEY en el servidor (archivo .env).</small>
-  </footer>
-
-  <script src="app.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
